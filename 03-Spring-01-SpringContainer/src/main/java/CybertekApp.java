@@ -9,7 +9,9 @@ public class CybertekApp {
 //        BeanFactory container = new ClassPathXmlApplicationContext("config.xml");
         ApplicationContext container = new ClassPathXmlApplicationContext("config.xml");
 
-        Mentor mentor = (Mentor) container.getBean("partTimeMentor");
+//        Mentor mentor = (Mentor) container.getBean("partTimeMentor");
+
+        Mentor mentor = container.getBean("fullTimeMentor", Mentor.class);
 
         mentor.createAccount();
 
