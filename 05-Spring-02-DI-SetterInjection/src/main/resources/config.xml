@@ -5,11 +5,13 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="java" class="com.cybertek.services.Java">
-        <!-- DI - Constructor Injection -->
-        <constructor-arg ref="officeHours"/>
+        <!-- DI - Setter Injection -->
+        <property name="officeHours" ref="officeHours"/>
     </bean>
-    <bean id="selenium" class="com.cybertek.services.Selenium"/>
+
+    <bean id="selenium" class="com.cybertek.services.Selenium">
+        <property name="extraSessions" ref="officeHours"/>
+    </bean>
+
     <bean id="officeHours" class="com.cybertek.services.OfficeHours"/>
-
-
 </beans>
