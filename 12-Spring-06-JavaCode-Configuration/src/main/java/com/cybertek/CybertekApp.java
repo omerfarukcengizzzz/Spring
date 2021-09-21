@@ -14,5 +14,7 @@ public class CybertekApp {
 
         course.getTeachingHours();
 
+        System.out.println(course.toString());
+
     }
 }

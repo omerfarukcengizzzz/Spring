@@ -7,9 +7,11 @@ import com.cybertek.services.Selenium;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan("com.cybertek")
+@PropertySource("classpath:application.properties")
 public class CybertekAppConfig {
 
     // The reason why we are creating beans in this class is, in some cases we might need to use

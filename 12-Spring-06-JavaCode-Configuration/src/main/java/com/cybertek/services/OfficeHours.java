@@ -1,7 +1,9 @@
 package com.cybertek.services;
 
 import com.cybertek.interfaces.ExtraSessions;
+import lombok.ToString;
 
+@ToString
 public class OfficeHours implements ExtraSessions {
     @Override
     public int getHours() {
