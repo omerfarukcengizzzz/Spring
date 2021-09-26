@@ -15,9 +15,9 @@ public class CarpetVA implements Carpet {
     private static final Map<City, BigDecimal> sqPriceForCity = new HashMap<>();
 
     static {
-        sqPriceForCity.put(City.MCLEAN, new BigDecimal("4,32"));
-        sqPriceForCity.put(City.ARLINGTON, new BigDecimal("2,99"));
-        sqPriceForCity.put(City.FAIRFAX, new BigDecimal("4,65"));
+        sqPriceForCity.put(City.MCLEAN, new BigDecimal("4.32"));
+        sqPriceForCity.put(City.ARLINGTON, new BigDecimal("2.99"));
+        sqPriceForCity.put(City.FAIRFAX, new BigDecimal("4.65"));
     }
 
     @Override
