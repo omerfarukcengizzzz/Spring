@@ -20,10 +20,14 @@ public class Calculator {
     @Qualifier("bedroom")
     private Floor floor;
 
-    public String getTotalCarpetCost(City city) {
+    public String getTotalCarpetCost(City city) throws Exception {
         BigDecimal cost = carpet.getSqFtPrice(city).multiply(floor.getArea());
 
-        return "Total Cost = $" + cost;
+        if (cost.compareTo(BigDecimal.ZERO) == 0) {
+            throw new Exception("This city does not exist");
+        } else {
+            return "Total Cost = $" + cost;
+        }
     }
 
 }
