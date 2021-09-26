@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class CarpetTX implements Carpet {
 
-    public static final Map<City, BigDecimal> prices = new HashMap<>();
+    private static final Map<City, BigDecimal> prices = new HashMap<>();
 
     static {
         prices.put(City.SAN_ANTONIO, BigDecimal.valueOf(2.13));
