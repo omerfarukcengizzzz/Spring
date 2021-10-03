@@ -33,6 +33,7 @@ public class HomeController {
         return "home";
     }
 
+
     // @PathVariable
 
     @GetMapping("/home/{name}")
@@ -47,6 +48,7 @@ public class HomeController {
         System.out.println("email = " + email);
         return "home";
     }
+
 
     // @RequestParam
 
