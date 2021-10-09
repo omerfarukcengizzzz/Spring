@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,6 +38,12 @@ public class StudentController {
         numbers.add(3);
         numbers.add(4);
         model.addAttribute("numbers", numbers);
+
+        LocalDate date = LocalDate.now();
+        model.addAttribute("date", date);
+
+        LocalDateTime time = LocalDateTime.now();
+        model.addAttribute("time", time);
 
         return "student/welcome";
     }
