@@ -30,9 +30,14 @@
 
     <!--  Adding parameter to link  -->
     <br>
-    <a th:href="@{/student/welcome.html(id=3)}">Link with id (static)</a>
+    <a th:href="@{/student/welcome(id=3)}">Link with id (static)</a>
     <br>
-    <a th:href="@{/student/welcome.html(id=${student.ID})}">Link with id (dynamic)</a>
+    <a th:href="@{/student/welcome(id=${student.ID})}">Link with id (dynamic)</a>
+
+    <!--  Iteration  -->
+    <ul>
+       <li th:each="n : ${numbers}" th:text="${n}"></li>
+    </ul>
 
 </body>
 </html>
