@@ -25,7 +25,14 @@
 
     <!--  Link  -->
     <a th:href="@{https://www.google.com}">Google</a>
+    <br>
     <a th:href="@{/mentor/welcome}">/mentor/welcome</a>
+
+    <!--  Adding parameter to link  -->
+    <br>
+    <a th:href="@{/student/welcome.html(id=3)}">Link with id (static)</a>
+    <br>
+    <a th:href="@{/student/welcome.html(id=${student.ID})}">Link with id (dynamic)</a>
 
 </body>
 </html>
