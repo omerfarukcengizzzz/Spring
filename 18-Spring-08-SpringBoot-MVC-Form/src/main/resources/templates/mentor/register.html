@@ -36,9 +36,13 @@
             <select th:field="*{batch}">
                 <option th:each="b : ${batchList}" th:value="${b}" th:text="${b}"></option>
             </select>
+            <br>
 
             <label>Company: </label>
-            <textarea th:field="*{company}">
+            <textarea th:field="*{company}"></textarea>
+            <br>
+
+            <button type="submit">Register</button>
 
         </form>
 
