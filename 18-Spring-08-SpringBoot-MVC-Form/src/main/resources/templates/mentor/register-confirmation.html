@@ -6,7 +6,13 @@
 </head>
 <body>
 
+    <label th:text="'Welcome ' + ${mentor.firstName} + ' ' + ${mentor.lastName}"></label><br>
 
+    <label th:text="${mentor.gender}"></label><br>
+    <label th:text="${mentor.email}"></label><br>
+    <label th:text="${mentor.batch}"></label><br>
+    <label th:text="${mentor.graduated}"></label><br>
+    <label th:text="${mentor.company}"></label><br>
 
 </body>
 </html>
