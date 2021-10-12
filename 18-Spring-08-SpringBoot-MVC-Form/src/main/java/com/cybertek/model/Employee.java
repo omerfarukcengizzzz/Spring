@@ -1,6 +1,5 @@
 package com.cybertek.model;
 
-import com.cybertek.enums.State;
 import lombok.*;
 
 @NoArgsConstructor
@@ -17,7 +16,7 @@ public class Employee {
     private String address;
     private String address2;
     private String city;
-    private State state;
+    private String state;
     private int zipCode;
 
 }
