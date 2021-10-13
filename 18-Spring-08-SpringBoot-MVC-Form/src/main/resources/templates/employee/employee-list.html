@@ -17,7 +17,7 @@
 
     <div class="card">
 
-        <div class="card-header text-dark col">
+        <div class="card-header text-dark col p-5">
             <h2 class="text-center">Employee List</h2>
         </div>
 
@@ -35,14 +35,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:each="e : ${employeeList}">
+                        <td th:text="${e.firstName}"></td>
+                        <td th:text="${e.lastName}"></td>
+                        <td th:text="${age}"></td>
+                        <td th:text="${e.address} + ' ' + ${e.address2}"></td>
+                        <td th:text="${e.city}"></td>
+                        <td th:text="${e.state}"></td>
+                        <td th:text="${e.zipCode}"></td>
                     </tr>
                 </tbody>
             </table>
