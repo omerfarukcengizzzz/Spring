@@ -15,44 +15,35 @@
 
 <div class="container col-9 align-items-center">
 
-    <div class="card">
+    <h2 class="text-center p-5">Employee List</h2>
 
-        <div class="card-header text-dark col p-5">
-            <h2 class="text-center">Employee List</h2>
-        </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="e : ${employeeList}">
+                <td th:text="${e.firstName}"></td>
+                <td th:text="${e.lastName}"></td>
+                <td th:text="${age}"></td>
+                <td th:text="${e.address} + ' ' + ${e.address2}"></td>
+                <td th:text="${e.city}"></td>
+                <td th:text="${e.state}"></td>
+                <td th:text="${e.zipCode}"></td>
+            </tr>
+        </tbody>
+    </table>
 
-        <div class="card-body bg-light col">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">City</th>
-                        <th scope="col">State</th>
-                        <th scope="col">Zip Code</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="e : ${employeeList}">
-                        <td th:text="${e.firstName}"></td>
-                        <td th:text="${e.lastName}"></td>
-                        <td th:text="${age}"></td>
-                        <td th:text="${e.address} + ' ' + ${e.address2}"></td>
-                        <td th:text="${e.city}"></td>
-                        <td th:text="${e.state}"></td>
-                        <td th:text="${e.zipCode}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
 
 </div>
-
-
 
 
 <!-- JavaScript -->

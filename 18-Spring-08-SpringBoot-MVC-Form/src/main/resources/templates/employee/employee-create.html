@@ -26,11 +26,11 @@
             <form class="row g-3" th:action="@{/employee/emp-list}" method="post" th:object="${employee}">
                 <div class="col-md-4">
                     <label class="form-label">First Name</label>
-                    <input type="email" class="form-control" th:field="*{firstName}">
+                    <input type="text" class="form-control" th:field="*{firstName}">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Last Name</label>
-                    <input type="password" class="form-control" th:field="*{lastName}">
+                    <input type="text" class="form-control" th:field="*{lastName}">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Birthday</label>
