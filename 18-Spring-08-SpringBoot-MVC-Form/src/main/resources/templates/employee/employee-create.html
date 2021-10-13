@@ -110,7 +110,9 @@
                 </div>
                 <div class="col-md-2">
                     <label for="inputZip" class="form-label">Zip Code</label>
-                    <input type="text" class="form-control" id="inputZip" th:field="*{zipCode}" required>
+                    <input type="text" class="form-control" id="inputZip" th:field="*{zipCode}"
+                           pattern="(?=.*[0-9]).{5,5}"
+                           required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
