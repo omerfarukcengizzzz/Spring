@@ -1,5 +1,6 @@
 package com.cybertek.controller;
 
+import com.cybertek.datagenerator.DataGenerator;
 import com.cybertek.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,6 @@ public class EmployeeController {
 
         String date = employee.getDate().substring(0,4);
         int year = Integer.parseInt(date);
-
         int age = 2021 - year;
 
         model.addAttribute("age", age);
@@ -47,6 +47,9 @@ public class EmployeeController {
     public String employeeCreate(Model model) {
 
         model.addAttribute("employee", new Employee());
+
+        List<String> states = DataGenerator.getStateList();
+        model.addAttribute("stateList", states);
 
         return "/employee/employee-create";
     }
