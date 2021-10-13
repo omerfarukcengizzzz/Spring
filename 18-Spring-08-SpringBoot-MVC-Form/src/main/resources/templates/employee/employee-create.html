@@ -61,8 +61,7 @@
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">State</label>
                     <select id="inputState" class="form-select" th:field="*{state}">
-                        <option selected disabled>Choose...</option>
-                        <option th:each="state : ${stateList}" th:value="${state}" th:text="${state}">...</option>
+                        <option th:each="state : ${stateList}" th:value="${state}" th:text="${state}"></option>
                     </select>
                 </div>
                 <div class="col-md-2">
