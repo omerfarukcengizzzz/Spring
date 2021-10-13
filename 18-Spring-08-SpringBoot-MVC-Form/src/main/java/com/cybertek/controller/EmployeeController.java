@@ -20,8 +20,8 @@ public class EmployeeController {
 
         model.addAttribute("employee", new Employee());
 
-        List<String> stateList = Arrays.asList("Texas", "California", "New York", "Florida", "Washington");
-        model.addAttribute("stateList", stateList);
+        List<String> state = Arrays.asList("Texas", "California", "New York", "Florida", "Washington");
+        model.addAttribute("stateList", state);
 
         return "/employee/register";
     }
@@ -30,6 +30,8 @@ public class EmployeeController {
     public String showList(@ModelAttribute("employee") Employee employee, Model model) {
 
         model.addAttribute("employeeList", Arrays.asList(employee));
+
+        System.out.println(employee.toString());
 
         return "/employee/list";
     }

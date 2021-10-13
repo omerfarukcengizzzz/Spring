@@ -46,7 +46,8 @@
             <input type="text" th:field="*{city}">
             <br>
 
-            <select th:field="${stateList}">
+            <label>State: </label>
+            <select th:field="*{state}">
                 <option th:each="s : ${stateList}" th:value="${s}" th:text="${s}"></option>
             </select>
 
