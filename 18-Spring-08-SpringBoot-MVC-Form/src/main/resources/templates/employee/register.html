@@ -35,12 +35,9 @@
             <input type="text" th:field="*{lastName}">
             <br>
 
-            <form class="form-inline row">
-                <div class="form-group col-sm-6">
-                    <label for="datepicker" class="col-sm-4">Bootstrap-datepicker</label>
-                    <input th:field="*{date}" type="text" class="form-control col-sm-8" id="datepicker" placeholder="Select a Date" readonly>
-                </div>
-            </form>
+
+            <input th:field="*{date}" type="text" class="form-control col-sm-8" id="datepicker" placeholder="Select a Date" readonly>
+
 
             <label>Email: </label>
             <input type="email" th:field="*{email}">
