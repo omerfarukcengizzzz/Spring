@@ -20,14 +20,16 @@ public class EmployeeController {
 
         model.addAttribute("employee", new Employee());
 
-        List<String> cityList = Arrays.asList("Texas", "California", "New York", "Florida", "Washington");
-        model.addAttribute("cityList", cityList);
+        List<String> stateList = Arrays.asList("Texas", "California", "New York", "Florida", "Washington");
+        model.addAttribute("stateList", stateList);
 
         return "/employee/register";
     }
 
     @PostMapping("/list")
-    public String showList(@ModelAttribute("employee") Employee employee) {
+    public String showList(@ModelAttribute("employee") Employee employee, Model model) {
+
+        model.addAttribute("employeeList", Arrays.asList(employee));
 
         return "/employee/list";
     }

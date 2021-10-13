@@ -23,7 +23,14 @@
             </thead>
 
             <tbody>
-
+                <tr th:each="e : ${employeeList}">
+                    <td th:text="${e.firstName}"></td>
+                    <td th:text="${e.lastName}"></td>
+                    <td th:text="${e.address} + ' ' + ${e.address2}"></td>
+                    <td th:text="${e.city}"></td>
+                    <td th:text="${e.state}"></td>
+                    <td th:text="${e.zipCode}"></td>
+                </tr>
             </tbody>
 
         </table>
