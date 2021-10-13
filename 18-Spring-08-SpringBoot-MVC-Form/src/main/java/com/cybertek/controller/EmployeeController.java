@@ -44,13 +44,16 @@ public class EmployeeController {
     }
 
     @GetMapping("/register")
-    public String employeeCreate() {
+    public String employeeCreate(Model model) {
+
+        model.addAttribute("employee", new Employee());
 
         return "/employee/employee-create";
     }
 
     @PostMapping("/emp-list")
     public String employeeList() {
+
         return "/employee/employee-list";
     }
 
