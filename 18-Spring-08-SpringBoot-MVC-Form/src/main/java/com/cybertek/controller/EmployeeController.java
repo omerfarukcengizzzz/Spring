@@ -46,8 +46,12 @@ public class EmployeeController {
     @GetMapping("/register")
     public String employeeCreate() {
 
-
         return "/employee/employee-create";
+    }
+
+    @PostMapping("/emp-list")
+    public String employeeList() {
+        return "/employee/employee-list";
     }
 
 }
