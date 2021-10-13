@@ -66,12 +66,14 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" th:field="*{password}" required>
+                    <input type="password" class="form-control" id="inputPassword4" th:field="*{password}"
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+                           required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                     <div class="invalid-feedback">
-                        Please enter your password.
+                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
                     </div>
                 </div>
                 <div class="col-12">
