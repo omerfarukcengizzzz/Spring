@@ -10,7 +10,7 @@ import lombok.*;
 public class Employee {
     private String firstName;
     private String lastName;
-    // private Calendar calendar;
+    private int date;
     private String email;
     private String password;
     private String address;

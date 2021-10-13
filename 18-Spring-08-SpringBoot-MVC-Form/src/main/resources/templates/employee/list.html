@@ -15,6 +15,7 @@
                 <tr>
                     <td>First Name</td>
                     <td>Last Name</td>
+                    <td>Birthday</td>
                     <td>Address</td>
                     <td>City</td>
                     <td>State</td>
@@ -26,6 +27,7 @@
                 <tr th:each="e : ${employeeList}">
                     <td th:text="${e.firstName}"></td>
                     <td th:text="${e.lastName}"></td>
+                    <td th:text="${e.date}"></td>
                     <td th:text="${e.address} + ' ' + ${e.address2}"></td>
                     <td th:text="${e.city}"></td>
                     <td th:text="${e.state}"></td>
