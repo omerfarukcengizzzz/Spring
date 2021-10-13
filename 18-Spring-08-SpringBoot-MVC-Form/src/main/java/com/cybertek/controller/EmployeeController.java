@@ -31,6 +31,13 @@ public class EmployeeController {
 
         model.addAttribute("employeeList", Arrays.asList(employee));
 
+        String date = employee.getDate().substring(0,4);
+        int year = Integer.parseInt(date);
+
+        int age = 2021 - year;
+
+        model.addAttribute("age", age);
+
         System.out.println(employee.toString());
 
         return "/employee/list";
