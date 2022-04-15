@@ -16,3 +16,22 @@ end;
 $$;
 
 select get_department_count_by_name('Sports');
+
+create or replace function get_department(p_pattern varchar)
+    returns table
+            (
+                employee_name  varchar,
+                employee_email varchar
+            )
+    language plpgsql
+as
+$$
+BEGIN
+return query
+select first_name, email
+from employees
+where department ilike p_pattern;
+end;
+$$;
+
+select * from get_department('%Oth%');
