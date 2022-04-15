@@ -35,3 +35,5 @@ end;
 $$;
 
 select * from get_department('%Oth%');
+
+drop function get_department(p_pattern varchar);
