@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
-    private Long studentId;
+    private Long id;
 
     private String firstName;
     private String lastName;
