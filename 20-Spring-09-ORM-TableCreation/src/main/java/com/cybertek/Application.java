@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -25,9 +27,12 @@ public class Application {
 		Car c2 = new Car("MERCEDES", "GLA");
 		Car c3 = new Car("VW", "PASSAT");
 
-		carRepository.save(c1);
-		carRepository.save(c2);
-		carRepository.save(c3);
+		List<Car> carList = new ArrayList<>();
+		carList.add(c1);
+		carList.add(c2);
+		carList.add(c3);
+
+		carRepository.saveAll(carList);
 
 	}
 
