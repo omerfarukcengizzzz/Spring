@@ -27,6 +27,6 @@ public class Employee extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private Long salary;
+    private int salary;
 
 }
