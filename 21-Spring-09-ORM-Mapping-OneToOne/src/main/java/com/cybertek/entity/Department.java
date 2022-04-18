@@ -13,16 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Department {
-
-    public Department(String department, String division) {
-        this.department = department;
-        this.division = division;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Department extends BaseEntity{
 
     private String department;
     private String division;

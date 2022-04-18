@@ -15,20 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Employee {
-
-    public Employee(String firstName, String lastName, String email, Date hireDate, Gender gender, Long salary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.hireDate = hireDate;
-        this.gender = gender;
-        this.salary = salary;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
+public class Employee extends BaseEntity{
 
     private String firstName;
     private String lastName;
