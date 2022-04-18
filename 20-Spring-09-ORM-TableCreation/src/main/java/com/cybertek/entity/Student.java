@@ -1,6 +1,10 @@
 package com.cybertek.entity;
 
 import com.cybertek.enums.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +14,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "students")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Student {
 
     @Id
@@ -41,4 +49,17 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    public Student(String firstName, String lastName, String email, String city, Date birthDate, Date birthTime, Date birthDateTime, LocalDate localDate, LocalTime localTime, LocalDateTime localDateTime, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.city = city;
+        this.birthDate = birthDate;
+        this.birthTime = birthTime;
+        this.birthDateTime = birthDateTime;
+        this.localDate = localDate;
+        this.localTime = localTime;
+        this.localDateTime = localDateTime;
+        this.gender = gender;
+    }
 }
