@@ -58,8 +58,6 @@ public class DataGenerator implements CommandLineRunner {
         employeeList.addAll(Arrays.asList(e1, e2, e3, e4, e5));
 
         employeeRepository.saveAll(employeeList);
-//        departmentRepository.saveAll(departmentList);
-
 
     }
 
