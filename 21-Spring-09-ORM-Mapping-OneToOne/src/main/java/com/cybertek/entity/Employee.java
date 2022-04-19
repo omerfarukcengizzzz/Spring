@@ -29,7 +29,8 @@ public class Employee extends BaseEntity{
 
     private int salary;
 
-    @OneToOne
+//    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dep_id")    // naming convention
     private Department department;
 
