@@ -18,7 +18,7 @@ public class Department extends BaseEntity{
     private String department;
     private String division;
 
-    @OneToOne(mappedBy = "department")
+    @OneToOne(mappedBy = "department")  // mappedBy tells spring that we don't need another foreign key on the departments table
     private Employee employee;
 
     public Department(String department, String division) {
