@@ -2,6 +2,7 @@ package com.cybertek.bootstrap;
 
 import com.cybertek.entity.Department;
 import com.cybertek.entity.Employee;
+import com.cybertek.entity.Region;
 import com.cybertek.enums.Gender;
 import com.cybertek.repository.DepartmentRepository;
 import com.cybertek.repository.EmployeeRepository;
@@ -35,11 +36,23 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
 
+        Region r1 = new Region("Europe", "Turkey");
+        Region r2 = new Region("Europe", "UK");
+        Region r3 = new Region("NA", "USA");
+        Region r4 = new Region("Asia", "China");
+        Region r5 = new Region("Africa", "Nigeria");
+
         e1.setDepartment(d1);
         e2.setDepartment(d2);
         e3.setDepartment(d3);
         e4.setDepartment(d4);
         e5.setDepartment(d5);
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
 
         List<Employee> employeeList = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
