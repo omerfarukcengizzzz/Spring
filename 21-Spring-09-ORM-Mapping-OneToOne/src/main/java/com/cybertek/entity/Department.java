@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "departments")
-@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter

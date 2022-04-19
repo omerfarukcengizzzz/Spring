@@ -11,7 +11,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
-@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter

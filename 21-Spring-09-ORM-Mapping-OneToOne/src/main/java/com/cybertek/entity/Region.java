@@ -11,7 +11,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "regions")
-@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
