@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
@@ -21,8 +21,8 @@ public class Employee extends BaseEntity{
     private String lastName;
     private String email;
 
-    @Temporal(TemporalType.DATE)
-    private Date hireDate;
+    @Column(columnDefinition = "DATE")
+    private LocalDate hireDate;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
