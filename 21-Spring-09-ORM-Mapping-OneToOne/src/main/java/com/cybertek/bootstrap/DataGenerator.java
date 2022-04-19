@@ -19,8 +19,6 @@ public class DataGenerator implements CommandLineRunner {
 
     @Autowired
     EmployeeRepository employeeRepository;
-    @Autowired
-    DepartmentRepository departmentRepository;
 
     @Override
     public void run(String... args) throws Exception {
