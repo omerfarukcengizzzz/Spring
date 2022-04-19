@@ -59,6 +59,8 @@ public class DataGenerator implements CommandLineRunner {
 
         employeeRepository.saveAll(employeeList);
 
+        employeeRepository.deleteById(1);
+
     }
 
 }
