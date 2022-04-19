@@ -36,11 +36,11 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
 
-        Region r1 = new Region("Europe", "Turkey");
-        Region r2 = new Region("Europe", "UK");
-        Region r3 = new Region("NA", "USA");
-        Region r4 = new Region("Asia", "China");
-        Region r5 = new Region("Africa", "Nigeria");
+        Region r1 = new Region("Southwest","United States");
+        Region r2 = new Region("Central","United States");
+        Region r3 = new Region("Northwest","United States");
+        Region r4 = new Region("Quebec'","Canada");
+        Region r5 = new Region("Central","Asia");
 
         e1.setDepartment(d1);
         e2.setDepartment(d2);
@@ -55,10 +55,8 @@ public class DataGenerator implements CommandLineRunner {
         e5.setRegion(r5);
 
         List<Employee> employeeList = new ArrayList<>();
-        List<Department> departmentList = new ArrayList<>();
 
         employeeList.addAll(Arrays.asList(e1, e2, e3, e4, e5));
-        departmentList.addAll(Arrays.asList(d1, d2, d3, d4, d5));
 
         employeeRepository.saveAll(employeeList);
 //        departmentRepository.saveAll(departmentList);
