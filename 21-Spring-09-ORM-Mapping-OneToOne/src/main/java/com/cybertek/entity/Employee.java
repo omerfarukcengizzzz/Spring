@@ -30,6 +30,7 @@ public class Employee extends BaseEntity{
     private int salary;
 
     @OneToOne
+    @JoinColumn(name = "dep_id")
     private Department department;
 
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, Gender gender, int salary) {
