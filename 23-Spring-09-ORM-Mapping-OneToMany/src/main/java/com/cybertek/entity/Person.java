@@ -1,6 +1,7 @@
 package com.cybertek.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Person {
@@ -13,6 +14,6 @@ public class Person {
     private String lastName;
 
     @OneToMany
-    private Address address;
+    private List<Address> addresses;
 
 }
