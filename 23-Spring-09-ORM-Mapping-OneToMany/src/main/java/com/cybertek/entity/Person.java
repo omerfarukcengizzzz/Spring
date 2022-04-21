@@ -21,14 +21,14 @@ public class Person {
     private String lastName;
 
 //    OPTION 1: Address is the super class
-    // if we map with @ManyToOne from Address class, we don't need to map it from here. (we don't need these lines if we don't want to map as a bi-direction)
-//    @OneToMany(mappedBy = "person")
-//    private List<Address> addresses;
+// if we map with @ManyToOne from Address class, we don't need to map it from here. (we don't need these lines if we don't want to map as a bi-directional)
+    @OneToMany(mappedBy = "person", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
+    private List<Address> addresses;
 
 //    OPTION 2: not preferred
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
-    @JoinColumn(name = "person_id")
-    private List<Address> addresses;
+//    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
+//    @JoinColumn(name = "person_id")
+//    private List<Address> addresses;
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;

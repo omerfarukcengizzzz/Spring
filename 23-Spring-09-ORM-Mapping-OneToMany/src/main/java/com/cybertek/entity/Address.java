@@ -19,9 +19,8 @@ public class Address {
     private String street;
     private String zipCode;
 
-//    OPTION 1: Address is the super class
-//    @ManyToOne
-//    private Person person;
+    @ManyToOne
+    private Person person;
 
 
     public Address(String street, String zipCode) {
