@@ -26,7 +26,7 @@ public class Person {
 //    private List<Address> addresses;
 
 //    OPTION 2: not preferred
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     @JoinColumn(name = "person_id")
     private List<Address> addresses;
 
