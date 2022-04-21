@@ -12,6 +12,7 @@ public class Address {
     private String street;
     private String zipCode;
 
+//    OPTION 1: Address is the super class
     @ManyToOne
     private Person person;
 
