@@ -22,7 +22,7 @@ public class Post {
     private String description;
 
 //  when using @ManyToMany mapping, use Set<> collection. (it effects performance)
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     @JoinTable(name = "post_tag_rel",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")})
