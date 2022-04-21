@@ -25,11 +25,15 @@ public class DataGenerator implements CommandLineRunner {
         post1.getTags().add(tag1);
         post1.getTags().add(tag2);
 
-        tag1.getPosts().add(post1);
-        tag2.getPosts().add(post1);
-
-        tag1.getPosts().add(post2);
         post2.getTags().add(tag1);
+        post2.getTags().add(tag2);
+
+        tag1.getPosts().add(post1);
+        tag1.getPosts().add(post2);
+
+        tag2.getPosts().add(post1);
+        tag2.getPosts().add(post2);
+
 
         postRepository.save(post1);
         postRepository.save(post2);
