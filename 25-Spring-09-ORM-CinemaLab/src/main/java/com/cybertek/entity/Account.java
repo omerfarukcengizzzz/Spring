@@ -20,7 +20,7 @@ public class Account extends BaseEntity {
     private String city;
     private String state;
     private Integer age;
-    private Integer postalCode;
+    private String postalCode;
 
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER;
@@ -29,7 +29,7 @@ public class Account extends BaseEntity {
     @JoinColumn(name = "user_account_id")
     private User user;
 
-    public Account(String name, String address, String country, String city, String state, Integer age, Integer postalCode, UserRole role) {
+    public Account(String name, String address, String country, String city, String state, Integer age, String postalCode, UserRole role) {
         this.name = name;
         this.address = address;
         this.country = country;
