@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,7 +19,16 @@ public class Ticket extends BaseEntity {
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime localDateTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private MovieCinema movieCinema;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_account_id")
+    private User user;
+
+    public Ticket(Integer seatNumber, Integer rowNumber, LocalDateTime localDateTime) {
+        this.seatNumber = seatNumber;
+        this.rowNumber = rowNumber;
+        this.localDateTime = localDateTime;
+    }
 }
