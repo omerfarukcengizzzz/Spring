@@ -23,6 +23,7 @@ public class Employee extends BaseEntity {
     private LocalDate hireDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department")    // on the data.sql the name is defined as department, the default will be department_id
     private Department department;
 
     @Enumerated(EnumType.STRING)
@@ -31,6 +32,7 @@ public class Employee extends BaseEntity {
     private Integer salary;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
     private Region region;
 
 }
