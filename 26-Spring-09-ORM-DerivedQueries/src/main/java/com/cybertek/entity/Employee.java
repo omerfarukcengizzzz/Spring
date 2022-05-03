@@ -1,5 +1,7 @@
 package com.cybertek.entity;
 
+import com.cybertek.enums.Gender;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -17,6 +19,12 @@ public class Employee extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
 
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
+    private Integer salary;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Region region;
 
 }
