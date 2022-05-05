@@ -17,4 +17,10 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
     List<Department> findByDivisionIs(String division);
     List<Department> findByDivisionEquals(String division);
 
+    // Display all departments with division name ends with 'ics
+    List<Department> findByDivisionEndingWith(String suffix);
+
+    // Display top 3 departments with division name including "Hea" without duplicates
+    List<Department> findDistinctTop3ByDivisionContaining(String division);
+
 }
