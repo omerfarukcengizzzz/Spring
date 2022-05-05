@@ -25,6 +25,8 @@ public class Application {
         System.out.println(regionRepository.findByCountry("Canada"));
         System.out.println(regionRepository.findDistinctByCountry("Canada"));
         System.out.println(regionRepository.findByCountryContaining("United"));
+        System.out.println(regionRepository.findByCountryContainingOrderByCountryDesc("United"));
+        System.out.println(regionRepository.findTop2ByCountry("Canada"));
 
         System.out.println("----- REGIONS END -----");
 
