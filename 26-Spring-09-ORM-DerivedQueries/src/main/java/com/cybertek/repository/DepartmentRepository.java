@@ -12,7 +12,7 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
     //Display all the departments in "Furniture" department
     List<Department> findByDepartment(String department);
 
-    // Dipslay all the departments in "Health" division
+    // Display all the departments in "Health" division
     List<Department> findByDivision(String division);
     List<Department> findByDivisionIs(String division);
     List<Department> findByDivisionEquals(String division);
