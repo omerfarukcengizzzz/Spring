@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class Employee extends BaseEntity {
 
     private String firstName;
@@ -37,4 +36,15 @@ public class Employee extends BaseEntity {
     @JoinColumn(name = "region_id")
     private Region region;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", hireDate=" + hireDate +
+                ", gender=" + gender +
+                ", salary=" + salary +
+                '}';
+    }
 }
