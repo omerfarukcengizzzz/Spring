@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class Application {
@@ -57,10 +58,16 @@ public class Application {
 
         System.out.println("----- EMPLOYEES START -----");
 
-        System.out.println(employeeRepository.findByEmail(""));
-        System.out.println(employeeRepository.findByFirstNameAndLastNameOrEmail("", "", ""));
-        System.out.println(employeeRepository.findByFirstNameIsNot(""));
-        System.out.println(employeeRepository.findByLastNameStartingWith(""));
+//        System.out.println(employeeRepository.findByEmail("ssymonds2@hhs.gov"));
+//        System.out.println(employeeRepository.findByFirstNameAndLastNameOrEmail("Sydney", "Symonds", "btrow5@technorati.com"));
+//        System.out.println(employeeRepository.findByFirstNameIsNot("John"));
+//        System.out.println(employeeRepository.findByLastNameStartingWith("T"));
+//        System.out.println(employeeRepository.findBySalaryGreaterThan(150000));
+//        System.out.println(employeeRepository.findBySalaryLessThanEqual(50000));
+//        System.out.println(employeeRepository.findByHireDateBetween(LocalDate.of(2010, 6, 1), LocalDate.now()));
+//        System.out.println(employeeRepository.findBySalaryGreaterThanEqualOrderBySalaryDesc(100000));
+//        System.out.println(employeeRepository.findDistinctTop3BySalaryLessThan(100000));
+//        System.out.println(employeeRepository.findByEmailIsNull());
 
         System.out.println("----- EMPLOYEES END -----");
 
