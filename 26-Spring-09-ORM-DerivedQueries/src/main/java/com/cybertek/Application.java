@@ -1,5 +1,6 @@
 package com.cybertek;
 
+import com.cybertek.repository.DepartmentRepository;
 import com.cybertek.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,8 @@ public class Application {
 
     @Autowired
     RegionRepository regionRepository;
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     @PostConstruct
     public void testRegions() {
@@ -29,6 +32,20 @@ public class Application {
         System.out.println(regionRepository.findTop2ByCountry("Canada"));
 
         System.out.println("----- REGIONS END -----");
+
+    }
+
+    @PostConstruct
+    public void testDepartments() {
+
+        System.out.println("----- DEPARTMENTS START -----");
+
+        System.out.println(departmentRepository.findByDepartment("Furniture"));
+        System.out.println(departmentRepository.findByDivision("Health"));
+        System.out.println(departmentRepository.findByDivisionEndingWith("ics"));
+        System.out.println(departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
+
+        System.out.println("----- DEPARTMENTS END -----");
 
     }
 
