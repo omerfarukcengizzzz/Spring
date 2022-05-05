@@ -1,6 +1,7 @@
 package com.cybertek;
 
 import com.cybertek.repository.DepartmentRepository;
+import com.cybertek.repository.EmployeeRepository;
 import com.cybertek.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +20,8 @@ public class Application {
     RegionRepository regionRepository;
     @Autowired
     DepartmentRepository departmentRepository;
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     @PostConstruct
     public void testRegions() {
@@ -46,6 +49,20 @@ public class Application {
         System.out.println(departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
 
         System.out.println("----- DEPARTMENTS END -----");
+
+    }
+
+    @PostConstruct
+    public void testEmployees() {
+
+        System.out.println("----- EMPLOYEES START -----");
+
+        System.out.println(employeeRepository.findByEmail(""));
+        System.out.println(employeeRepository.findByFirstNameAndLastNameOrEmail("", "", ""));
+        System.out.println(employeeRepository.findByFirstNameIsNot(""));
+        System.out.println(employeeRepository.findByLastNameStartingWith(""));
+
+        System.out.println("----- EMPLOYEES END -----");
 
     }
 
