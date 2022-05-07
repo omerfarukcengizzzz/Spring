@@ -20,4 +20,6 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
     @Query(nativeQuery = true)
     List<Department> retrieveDepartmentByDivisionContains(String infix);
 
+    List<Department> findDepartment(String division);
+
 }

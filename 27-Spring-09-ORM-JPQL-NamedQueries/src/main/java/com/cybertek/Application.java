@@ -39,6 +39,8 @@ public class Application {
 
         System.out.println(departmentRepository.retrieveDepartmentByDivision("Health"));
         System.out.println(departmentRepository.retrieveDepartmentByDivisionContains("om"));
+
+        System.out.println(departmentRepository.findDepartment("Kids"));
     }
 
 }
