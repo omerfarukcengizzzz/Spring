@@ -1,5 +1,6 @@
 package com.cybertek;
 
+import com.cybertek.repository.DepartmentRepository;
 import com.cybertek.repository.EmployeeRepository;
 import com.cybertek.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class Application {
     EmployeeRepository employeeRepository;
     @Autowired
     RegionRepository regionRepository;
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     @PostConstruct
     public void test() {
@@ -33,6 +36,8 @@ public class Application {
 
         employeeRepository.updateEmployeeJPQL(1l);
         employeeRepository.updateEmployeeNativeQuery(1);
+
+        System.out.println(departmentRepository.retrieveDepartmentByDivision("Health"));
     }
 
 }
