@@ -41,6 +41,7 @@ public class Application {
         System.out.println(departmentRepository.retrieveDepartmentByDivisionContains("om"));
 
         System.out.println(departmentRepository.findDepartment("Kids"));
+        System.out.println(departmentRepository.countAllDepartments());
     }
 
 }

@@ -22,4 +22,6 @@ public interface DepartmentRepository extends JpaRepository<Department, String> 
 
     List<Department> findDepartment(String division);
 
+    List<Department> countAllDepartments();
+
 }
