@@ -38,7 +38,7 @@ public class Application {
         employeeRepository.updateEmployeeNativeQuery(1);
 
         System.out.println(departmentRepository.retrieveDepartmentByDivision("Health"));
-        System.out.println(departmentRepository.retrieveDepartmentByDivisionContains("om "));
+        System.out.println(departmentRepository.retrieveDepartmentByDivisionContains("om"));
     }
 
 }
