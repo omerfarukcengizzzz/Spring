@@ -32,6 +32,7 @@ public class Application {
         System.out.println(regionRepository.getRegionByCountry("United States"));
 
         employeeRepository.updateEmployeeJPQL(1l);
+        employeeRepository.updateEmployeeNativeQuery(1);
     }
 
 }
