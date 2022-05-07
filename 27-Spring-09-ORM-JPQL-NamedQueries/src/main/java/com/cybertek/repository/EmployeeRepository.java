@@ -2,10 +2,12 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -74,5 +76,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     // sorting
     @Query("select e from Employee e order by e.salary asc")
     List<Employee> getEmployeeBySalaryOrderByAsc();
+
+    // Modifying Queries
+    @Modifying
+    @Transactional
+    @Query("update Employee e set e.email = 'admin@email.com' where e.id = :id")
+    void updateEmployeeJPQL(@Param("id") Long id);
 
 }
