@@ -21,6 +21,8 @@ public class Application {
     public void employeeTest() {
         System.out.println(employeeRepository.getEmployeeDetail());
         System.out.println(employeeRepository.getEmployeeSalary());
+        System.out.println(employeeRepository.getEmployeeByEmail("amcnee1@google.es"));
+        System.out.println(employeeRepository.getEmployeeByEmailAndSalary("bmanueau0@dion.ne.jp", 154864));
     }
 
 }
