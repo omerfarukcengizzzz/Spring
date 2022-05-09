@@ -1,7 +1,6 @@
 package com.cybertek.repository;
 
 import com.cybertek.entity.Cinema;
-import com.cybertek.entity.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
