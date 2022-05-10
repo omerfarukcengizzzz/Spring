@@ -30,7 +30,7 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
 
     // Write a JPQL query to read the cinema name with a specific id
     @Query("select c.name from Cinema c where c.id = :id")
-    Optional<Cinema> findCinemaById(@Param("id") Integer id);
+    Optional<Cinema> findCinemaById(@Param("id") Long id);
 
     // ------------------- NATIVE QUERIES ----------------------
 
