@@ -39,4 +39,17 @@ public class Account extends BaseEntity {
         this.postalCode = postalCode;
         this.role = role;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", age=" + age +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
+    }
 }
