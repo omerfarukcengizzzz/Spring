@@ -52,7 +52,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> getAccountsByAgeLessThan(Integer age);
 
     // Write a native query to read all accounts that a specific value can be containable in the name, address, country, state, city
-    @Query(value = "select * from account_details a where a.name ilike concat('%', '?1', '%') or a.address ilike concat('%', '?1', '%') or a.country ilike concat('%', '?1', '%') or a.state ilike concat('%', '?1', '%') or a.city ilike concat('%', '?1', '%')", nativeQuery = true)
+    @Query(value = "select * from account_details a where a.name ilike concat('%', ?1, '%') or a.address ilike concat('%', ?1, '%') or a.country ilike concat('%', ?1, '%') or a.state ilike concat('%', ?1, '%') or a.city ilike concat('%', ?1, '%')", nativeQuery = true)
     List<Account> getAccountsByContaining(String infix);
 
 }
