@@ -2,6 +2,7 @@ package com.cybertek;
 
 import com.cybertek.enums.UserRole;
 import com.cybertek.repository.AccountRepository;
+import com.cybertek.repository.CinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,8 @@ public class Application {
 
     @Autowired
     AccountRepository accountRepository;
+    @Autowired
+    CinemaRepository cinemaRepository;
 
     @PostConstruct
     public void test() {
@@ -33,9 +36,19 @@ public class Application {
         System.out.println(accountRepository.getAccountsOrderedByAge());
         System.out.println(accountRepository.getAccountsByAgeLessThan(29));
         System.out.println(accountRepository.getAccountsByContaining("osi"));
+        System.out.println("------------------------------------------");
 
         System.out.println("----------- CINEMA REPOSITORY -----------");
-
+        System.out.println(cinemaRepository.findByName("Hall 1 - EMPIRE"));
+        System.out.println(cinemaRepository.findTop3BySponsoredNameContaining("Kodak"));
+        System.out.println(cinemaRepository.findAllByLocation_Country("United States"));
+        System.out.println(cinemaRepository.findByNameOrSponsoredName("", "HBO"));
+        System.out.println(cinemaRepository.findCinemaById(5l));
+        System.out.println(cinemaRepository.getAllByLocation("United States"));
+        System.out.println(cinemaRepository.getCinemaByNameContainingOrSponsoredNameContaining("Pont"));
+        System.out.println(cinemaRepository.sortByName());
+        System.out.println(cinemaRepository.findDistinctBySponsoredName());
+        System.out.println("-----------------------------------------");
 
     }
 

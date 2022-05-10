@@ -25,4 +25,12 @@ public class Cinema extends BaseEntity {
         this.name = name;
         this.sponsoredName = sponsoredName;
     }
+
+    @Override
+    public String toString() {
+        return "Cinema{" +
+                "name='" + name + '\'' +
+                ", sponsoredName='" + sponsoredName + '\'' +
+                '}';
+    }
 }
