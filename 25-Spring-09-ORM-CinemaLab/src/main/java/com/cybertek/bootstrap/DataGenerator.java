@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+// In order to get data from data.sql, we need to comment @Component annotation. Otherwise, SpringBoot framework will create a bean from this class
+//@Component
 public class DataGenerator implements CommandLineRunner {
 
     private MovieRepository movieRepository;
