@@ -4,11 +4,13 @@ import com.cybertek.enums.UserRole;
 import com.cybertek.repository.AccountRepository;
 import com.cybertek.repository.CinemaRepository;
 import com.cybertek.repository.GenreRepository;
+import com.cybertek.repository.MovieCinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 
 @SpringBootApplication
 public class Application {
@@ -23,6 +25,8 @@ public class Application {
     CinemaRepository cinemaRepository;
     @Autowired
     GenreRepository genreRepository;
+    @Autowired
+    MovieCinemaRepository movieCinemaRepository;
 
     @PostConstruct
     public void test() {
@@ -58,8 +62,18 @@ public class Application {
         System.out.println(genreRepository.findByNameContaining("Drama"));
         System.out.println("----------------------------------------");
 
-
-
+        System.out.println("----------- MOVIE_CINEMA REPOSITORY -----------");
+        System.out.println(movieCinemaRepository.findById(3l));
+        System.out.println(movieCinemaRepository.countAllByCinemaId(7l));
+        System.out.println(movieCinemaRepository.countAllByMovieId(9l));
+        System.out.println(movieCinemaRepository.findAllByDateTimeIsAfter(LocalDateTime.now()));
+        System.out.println(movieCinemaRepository.findFirst3ByOrderByMoviePrice());
+        System.out.println(movieCinemaRepository.findAllByMovieNameContaining("The Gentleman"));
+        System.out.println(movieCinemaRepository.findAllByCinemaLocationName("AMC Empire 25"));
+        System.out.println(movieCinemaRepository.listAllMovieCinemaAfterDate(LocalDateTime.now()));
+        System.out.println(movieCinemaRepository.countByCinemaId(2l));
+        System.out.println(movieCinemaRepository.retrieveAllByLocationName("AMC Village 7"));
+        System.out.println("-----------------------------------------------");
 
     }
 

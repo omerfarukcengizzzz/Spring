@@ -50,4 +50,18 @@ public class Movie extends BaseEntity {
         this.state = state;
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", duration=" + duration +
+                ", summary='" + summary + '\'' +
+                ", type=" + type +
+                ", state=" + state +
+                ", price=" + price +
+                '}';
+    }
+
 }
