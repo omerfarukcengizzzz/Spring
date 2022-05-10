@@ -3,6 +3,7 @@ package com.cybertek;
 import com.cybertek.enums.UserRole;
 import com.cybertek.repository.AccountRepository;
 import com.cybertek.repository.CinemaRepository;
+import com.cybertek.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,8 @@ public class Application {
     AccountRepository accountRepository;
     @Autowired
     CinemaRepository cinemaRepository;
+    @Autowired
+    GenreRepository genreRepository;
 
     @PostConstruct
     public void test() {
@@ -49,6 +52,14 @@ public class Application {
         System.out.println(cinemaRepository.sortByName());
         System.out.println(cinemaRepository.findDistinctBySponsoredName());
         System.out.println("-----------------------------------------");
+
+        System.out.println("----------- GENRE REPOSITORY -----------");
+        System.out.println(genreRepository.retrieveAllGenres());
+        System.out.println(genreRepository.findByNameContaining("Drama"));
+        System.out.println("----------------------------------------");
+
+
+
 
     }
 
