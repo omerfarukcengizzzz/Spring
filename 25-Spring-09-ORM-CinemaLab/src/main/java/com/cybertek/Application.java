@@ -31,6 +31,8 @@ public class Application {
     MovieCinemaRepository movieCinemaRepository;
     @Autowired
     MovieRepository movieRepository;
+    @Autowired
+    TicketRepository ticketRepository;
 
     @PostConstruct
     public void test() {
@@ -92,6 +94,14 @@ public class Application {
         System.out.println(movieRepository.findByDurationBetween(Arrays.asList(10, 40, 100, 150)));
         System.out.println(movieRepository.findTop5ByPrice());
         System.out.println("----------------------------------------");
+
+        System.out.println("----------- TICKET REPOSITORY -----------");
+        System.out.println(ticketRepository.countAllByUserAccountName("Josie D Story"));
+        System.out.println(ticketRepository.findByUserEmail("josie_story@email.com"));
+        System.out.println(ticketRepository.countAllByMovieCinemaMovieId(1l));
+
+        System.out.println(ticketRepository.countAllByUserAccountId(1l));
+        System.out.println("-----------------------------------------");
 
     }
 

@@ -31,4 +31,13 @@ public class Ticket extends BaseEntity {
         this.rowNumber = rowNumber;
         this.dateTime = dateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "seatNumber=" + seatNumber +
+                ", rowNumber=" + rowNumber +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }
