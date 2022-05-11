@@ -118,6 +118,13 @@ public class Application {
         System.out.println(userRepository.findAllByAccountNameContaining("R"));
         System.out.println(userRepository.findAllByAccountNameContainingIgnoreCase("r"));
         System.out.println(userRepository.findAllByAccountAgeGreaterThan(45));
+        System.out.println(userRepository.findAllByUserEmail("josie_story@email.com"));
+        System.out.println(userRepository.findAllByUsername("lawrence.f"));
+        System.out.println(userRepository.retrieveAllUsers());
+        System.out.println(userRepository.retrieveAllByNameContaining("E"));
+        System.out.println(userRepository.retrieveAll());
+        System.out.println(userRepository.retrieveAllByAgeBetween(25, 40));
+        System.out.println(userRepository.findByEmail("johnnie@email.com"));
         System.out.println("---------------------------------------");
 
     }
