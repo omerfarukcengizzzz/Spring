@@ -3,6 +3,7 @@ package com.cybertek.repository;
 import com.cybertek.entity.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -47,11 +48,24 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     Optional<Integer> countAllByDateTimeBetween(LocalDateTime start, LocalDateTime end, Long id);
 
     // Write a native query to distinct all tickets by movie name
+    @Query(value = "select distinct (m.movie_name) from ticket t join movie_cinema mc on t.movie_cinema_id = mc.id join movie m on m.id = mc.movie_id", nativeQuery = true)
+    List<Ticket> returnAllDistinctTicketsByMovieName();
 
     // Write a native query to find all tickets by user email
+    @Query(value = "select * from ticket t join user_account ua on t.user_account_id = ua.id where ua.email = :email", nativeQuery = true)
+    List<Ticket> findAllByUserEmail(@Param("email") String email);
 
     // Write a native query that returns all tickets
+    @Query(value = "select * from ticket", nativeQuery = true)
+    List<Ticket> retrieveAllTickets();
 
     // Write a native query to list all tickets where a specific value should be containable in the username or name or movie name
+    @Query(value = "select * from ticket t " +
+            "join user_account ua on t.user_account_id = ua.id " +
+            "join account_details ad on ua.account_details_id = ad.id " +
+            "join movie_cinema mc on t.movie_cinema_id = mc.id " +
+            "join movie m on mc.movie_id = m.id" +
+            "where ua.username ilike concat('%', ?1, '%') or m.name ilike concat('%', ?1, '%') ad.name ilike concat('%', ?1, '%')", nativeQuery = true)
+    List<Ticket> retrieveAllByUserNameContainingOrNameContainingOrMovieNameContaining(String pattern);
 
 }
