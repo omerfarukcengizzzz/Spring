@@ -99,8 +99,15 @@ public class Application {
         System.out.println(ticketRepository.countAllByUserAccountName("Josie D Story"));
         System.out.println(ticketRepository.findByUserEmail("josie_story@email.com"));
         System.out.println(ticketRepository.countAllByMovieCinemaMovieId(1l));
-
+        System.out.println(ticketRepository.findAllByDateTimeBetween(LocalDateTime.now().minusYears(10), LocalDateTime.now()));
+        System.out.println(ticketRepository.findAllByUserAccountName("josieStory"));
+        System.out.println(ticketRepository.retrieveAllByDateTimeBetween(LocalDateTime.now().minusYears(10), LocalDateTime.now()));
         System.out.println(ticketRepository.countAllByUserAccountId(1l));
+        System.out.println(ticketRepository.countAllByDateTimeBetween(LocalDateTime.now().minusYears(10), LocalDateTime.now(), 3l));
+        System.out.println(ticketRepository.returnAllDistinctTicketsByMovieName());
+        System.out.println(ticketRepository.findAllByUserEmail("faith.p@email.com"));
+        System.out.println(ticketRepository.retrieveAllTickets());
+        System.out.println(ticketRepository.retrieveAllByUserNameContainingOrNameContainingOrMovieNameContaining("Faith R Parsons"));
         System.out.println("-----------------------------------------");
 
     }
