@@ -33,6 +33,8 @@ public class Application {
     MovieRepository movieRepository;
     @Autowired
     TicketRepository ticketRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @PostConstruct
     public void test() {
@@ -109,6 +111,14 @@ public class Application {
         System.out.println(ticketRepository.retrieveAllTickets());
         System.out.println(ticketRepository.retrieveAllByUserNameContainingOrNameContainingOrMovieNameContaining("Faith R Parsons"));
         System.out.println("-----------------------------------------");
+
+        System.out.println("----------- USER REPOSITORY -----------");
+        System.out.println(userRepository.findAllByEmail("johnnie@email.com"));
+        System.out.println(userRepository.findAllByUsername("faith"));
+        System.out.println(userRepository.findAllByAccountNameContaining("R"));
+        System.out.println(userRepository.findAllByAccountNameContainingIgnoreCase("r"));
+        System.out.println(userRepository.findAllByAccountAgeGreaterThan(45));
+        System.out.println("---------------------------------------");
 
     }
 
