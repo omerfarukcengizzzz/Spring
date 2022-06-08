@@ -33,7 +33,7 @@ public class UserPrincipal implements UserDetails {
 
         // get the list of roles
         user.getRoleList().forEach(r -> {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" + r);    // the naming convention for role is ROLE_xxxx
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(r);  // since the role authority is defined as antMatchers().hasAuthority() we don't need --> "ROLE_"
             authorityList.add(grantedAuthority);
         });
 
