@@ -18,10 +18,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()    // request should be authorized
                 .antMatchers("index.html").permitAll()
                 .antMatchers("/profile/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")      // .hasAuthority("ROLE_ADMIN")  -> they are both the same
-                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/admin/**").hasAuthority("ADMIN")      // .hasAuthority("ROLE_ADMIN")  -> they are both the same
+                .antMatchers("/management/**").hasAnyAuthority("ADMIN", "MANAGER")
                 .and()
-                .httpBasic();   // perform basic http authentication
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/index")
+                .permitAll();
+
     }
 
     @Bean
