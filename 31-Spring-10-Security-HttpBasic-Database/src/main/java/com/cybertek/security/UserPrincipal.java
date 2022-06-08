@@ -25,11 +25,13 @@ public class UserPrincipal implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorityList = new ArrayList<>();
 
+        // get the list of permissions
         user.getPermissionList().forEach(p -> {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(p);
             authorityList.add(grantedAuthority);
         });
 
+        // get the list of roles
         user.getRoleList().forEach(r -> {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" + r);    // the naming convention for role is ROLE_xxxx
             authorityList.add(grantedAuthority);
