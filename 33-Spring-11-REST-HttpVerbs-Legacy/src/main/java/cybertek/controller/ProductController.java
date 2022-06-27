@@ -4,10 +4,7 @@ import cybertek.entity.Product;
 import cybertek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,16 @@ public class ProductController {
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public @ResponseBody List<Product> getProducts() {
         return productService.getProducts();
+    }
+
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody List<Product> deleteProduct(@PathVariable("id") Long id) {
+        return productService.delete(id);
+    }
+
+    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    public @ResponseBody List<Product> createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
 
 }
