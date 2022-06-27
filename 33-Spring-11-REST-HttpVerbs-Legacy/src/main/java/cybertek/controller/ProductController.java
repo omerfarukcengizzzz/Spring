@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class ProductController {
 
@@ -18,6 +20,11 @@ public class ProductController {
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
     public @ResponseBody Product getProduct(@PathVariable("id") Long id) {
         return productService.getProduct(id);
+    }
+
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public @ResponseBody List<Product> getProducts() {
+        return productService.getProducts();
     }
 
 }
