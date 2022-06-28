@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,8 +39,9 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public List<Product> deleteProduct(@PathVariable("id") Long id) {
-        return productService.delete(id);
+    public ResponseEntity<List<Product>> deleteProduct(@PathVariable("id") Long id) {
+        return ResponseEntity
+                .ok(productService.delete(id));
     }
 
     @PostMapping()
@@ -53,8 +56,14 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public List<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        return productService.updateProduct(id, product);
+    public ResponseEntity<List<Product>> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        List<Product> list = productService.updateProduct(id, product);
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+
+        map.add("Version", "Cybertek.v1");
+        map.add("Operation", "Update Product");
+
+        return new ResponseEntity<>(list, map, HttpStatus.OK);
     }
 
 }
