@@ -14,27 +14,27 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     public Product getProduct(@PathVariable("id") Long id) {
         return productService.getProduct(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Product> getProducts() {
         return productService.getProducts();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     public List<Product> deleteProduct(@PathVariable("id") Long id) {
         return productService.delete(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public List<Product> createProduct(@RequestBody Product product) {
         return productService.createProduct(product);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("/{id}")
     public List<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         return productService.updateProduct(id, product);
     }
