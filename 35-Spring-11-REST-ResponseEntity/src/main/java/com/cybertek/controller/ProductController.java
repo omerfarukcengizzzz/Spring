@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.entity.Product;
+import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -64,6 +65,18 @@ public class ProductController {
         map.add("Operation", "Update Product");
 
         return new ResponseEntity<>(list, map, HttpStatus.OK);
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<ResponseWrapper> readAllProducts() {
+        return ResponseEntity
+                .ok(new ResponseWrapper("Products successfully retrieved", productService.getProducts()));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<ResponseWrapper> delete(@PathVariable Long id) {
+        return ResponseEntity
+                .ok(new ResponseWrapper("Product successfully deleted"));
     }
 
 }
