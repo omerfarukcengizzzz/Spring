@@ -34,4 +34,9 @@ public class ProductController {
         return productService.createProduct(product);
     }
 
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+    public @ResponseBody List<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        return productService.updateProduct(id, product);
+    }
+
 }
