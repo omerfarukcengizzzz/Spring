@@ -19,7 +19,7 @@ public class ProductController {
         return productService.getProduct(id);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Product> getProducts() {
         return productService.getProducts();
     }
@@ -29,7 +29,7 @@ public class ProductController {
         return productService.delete(id);
     }
 
-    @PostMapping
+    @PostMapping()
     public List<Product> createProduct(@RequestBody Product product) {
         return productService.createProduct(product);
     }
