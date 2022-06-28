@@ -1,7 +1,7 @@
 package com.cybertek.bootstrap;
 
-import cybertek.entity.Product;
-import cybertek.repository.ProductRepository;
+import com.cybertek.entity.Product;
+import com.cybertek.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

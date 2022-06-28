@@ -1,6 +1,7 @@
 package com.cybertek.service;
 
-import cybertek.entity.Product;
+
+import com.cybertek.entity.Product;
 
 import java.util.List;
 

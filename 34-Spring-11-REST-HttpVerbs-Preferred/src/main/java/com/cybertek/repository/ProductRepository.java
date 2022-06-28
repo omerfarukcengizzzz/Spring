@@ -1,6 +1,6 @@
 package com.cybertek.repository;
 
-import cybertek.entity.Product;
+import com.cybertek.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

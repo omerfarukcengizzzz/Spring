@@ -1,8 +1,8 @@
 package com.cybertek.implementation;
 
-import cybertek.entity.Product;
-import cybertek.repository.ProductRepository;
-import cybertek.service.ProductService;
+import com.cybertek.entity.Product;
+import com.cybertek.repository.ProductRepository;
+import com.cybertek.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
