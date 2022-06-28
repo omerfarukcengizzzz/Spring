@@ -73,10 +73,17 @@ public class ProductController {
                 .ok(new ResponseWrapper("Products successfully retrieved", productService.getProducts()));
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<ResponseWrapper> delete(@PathVariable Long id) {
+    @DeleteMapping("/delete1/{id}")
+    public ResponseEntity<ResponseWrapper> delete1(@PathVariable Long id) {
         return ResponseEntity
                 .ok(new ResponseWrapper("Product successfully deleted"));
+    }
+
+    @DeleteMapping("/delete2/{id}")
+    public ResponseEntity<ResponseWrapper> delete2(@PathVariable Long id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new ResponseWrapper("Product successfully deleted"));
     }
 
 }
