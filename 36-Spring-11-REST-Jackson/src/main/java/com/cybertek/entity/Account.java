@@ -1,6 +1,7 @@
 package com.cybertek.entity;
 
 import com.cybertek.enums.UserRole;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Account extends BaseEntity {
 
     @OneToOne(mappedBy = "account")
     @JoinColumn(name = "user_account_id")
+    @JsonBackReference
     private User user;
 
     public Account(String name, String address, String country, String city, String state, Integer age, String postalCode, UserRole role) {
