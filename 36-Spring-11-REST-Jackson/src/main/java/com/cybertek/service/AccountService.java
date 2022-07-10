@@ -1,4 +1,11 @@
 package com.cybertek.service;
 
-public interface AccountService extends {
+import com.cybertek.entity.Account;
+
+import java.util.List;
+
+public interface AccountService {
+
+    List<Account> getAllAccounts();
+
 }
