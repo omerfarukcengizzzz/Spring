@@ -1,7 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.entity.Account;
-import com.cybertek.repository.AccountRepository;
+import com.cybertek.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +14,13 @@ import java.util.List;
 public class HomeController {
 
     // Dependencies
-    private AccountRepository accountRepository;
+    private AccountService accountService;
 
     // Account Controller
     @GetMapping("/getAccounts")
     public ResponseEntity<List<Account>> getAllAccount() {
         return ResponseEntity
-                .ok(accountRepository.getAllAccounts());
+                .ok(accountService.getAllAccounts());
     }
 
 }
