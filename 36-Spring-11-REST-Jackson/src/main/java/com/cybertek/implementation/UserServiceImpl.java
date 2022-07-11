@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UserRepositoryImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Lazy
     @Autowired
@@ -17,5 +19,10 @@ public class UserRepositoryImpl implements UserService {
     @Override
     public User findByEmail(String email) {
         return null;
+    }
+
+    @Override
+    public List<User> retrieveAllUsers() {
+        return userRepository.findAll();
     }
 }
