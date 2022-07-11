@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.entity.Account;
+import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.entity.User;
 import com.cybertek.service.AccountService;
 import com.cybertek.service.UserService;
@@ -20,7 +21,7 @@ public class HomeController {
     private UserService userService;
 
     // Account Controller
-    @GetMapping("/getAccounts")
+    @GetMapping("/accounts")
     public ResponseEntity<List<Account>> getAllAccount() {
         return ResponseEntity
                 .ok(accountService.getAllAccounts());
@@ -28,10 +29,16 @@ public class HomeController {
 
 
     // User Controller
-    @GetMapping("/getUser/{email}")
+    @GetMapping("/user/{email}")
     public ResponseEntity<User> getUser(@PathVariable String email) {
         return ResponseEntity
                 .ok(userService.findByEmail(email));
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<ResponseWrapper> getAllUsers() {
+        return ResponseEntity
+                .ok(new ResponseWrapper("User list retrieved successfully", userService.retrieveAllUsers()));
     }
 
 }
