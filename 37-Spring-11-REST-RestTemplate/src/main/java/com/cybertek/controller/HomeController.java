@@ -40,11 +40,11 @@ public class HomeController {
     public ResponseEntity<Object> consumePostsFromDummyApi() {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.set("app-id", "lTE5abbDxdjGplutvTuc");
+        headers.set("app-id", "lTE5abbDxdjGplutvTuc");  // currently, the app-id for the dummyapi.io is not correct
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<Object> response = restTemplate.exchange("https://dummyapi.io/data/api/user?limit=10", HttpMethod.GET, entity, Object.class);
+        ResponseEntity<Object> response = restTemplate.exchange("https://dummyapi.io/data/v1/user?limit=10", HttpMethod.GET, entity, Object.class);
 
         return response;
     }
