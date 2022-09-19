@@ -1,5 +1,6 @@
 package com.cybertek.model;
 
+import com.cybertek.enums.EducationLevel;
 import com.cybertek.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,21 +18,26 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer"})
-public class Student extends BaseEntity{
+public class Teacher extends BaseEntity{
 
-    private LocalDate birthday;
-    private String email;
     private String firstname;
     private String lastname;
+    private String username;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    private LocalDate birthday;
+
     private String phoneNumber;
-    private String username;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @Enumerated(EnumType.STRING)
+    private EducationLevel educationLevel;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 

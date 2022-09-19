@@ -17,21 +17,26 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer"})
-public class Student extends BaseEntity{
+public class Parent extends BaseEntity{
 
-    private LocalDate birthday;
-    private String email;
     private String firstname;
     private String lastname;
+    private String username;
+    private String email;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    private LocalDate birthday;
+
     private String phoneNumber;
-    private String username;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    private String profession;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
