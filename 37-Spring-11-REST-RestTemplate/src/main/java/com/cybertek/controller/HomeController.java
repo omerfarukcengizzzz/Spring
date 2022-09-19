@@ -37,7 +37,7 @@ public class HomeController {
     public ResponseEntity<Object> consumePostsFromDummyApi() {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.set("api-id", "lTE5abbDxdjGplutvTuc");
+        headers.set("app-id", "lTE5abbDxdjGplutvTuc");
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
