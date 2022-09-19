@@ -18,6 +18,7 @@ public class HomeController {
     @Autowired
     private RestTemplate restTemplate;
 
+    // deserialize
     @GetMapping
     public User[] readAllUsers() {
         ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(URI, User[].class);
@@ -25,6 +26,7 @@ public class HomeController {
         return responseEntity.getBody();
     }
 
+    // consumption without deserializing
     @GetMapping(value = "/{id}")
     public Object readUserById(@PathVariable("id") Integer id) {
         String URL = URI + "/{id}";
@@ -32,6 +34,7 @@ public class HomeController {
         return restTemplate.getForObject(URL, Object.class, id);
     }
 
+    // sending headers
     // some APIs will need headers in order to send the required info. exchange() method will help with that
     @GetMapping("/test")
     public ResponseEntity<Object> consumePostsFromDummyApi() {
