@@ -35,4 +35,8 @@ public class Student extends BaseEntity{
     @JoinColumn(name = "address_id")
     private Address address;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
+
 }
