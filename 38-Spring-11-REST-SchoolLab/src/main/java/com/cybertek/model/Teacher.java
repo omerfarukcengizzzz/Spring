@@ -20,9 +20,10 @@ import java.time.LocalDate;
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer"})
 public class Teacher extends BaseEntity{
 
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String username;
+    private String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
