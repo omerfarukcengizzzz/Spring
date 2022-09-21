@@ -6,6 +6,7 @@ import com.cybertek.repository.ParentRepository;
 import com.cybertek.repository.StudentRepository;
 import com.cybertek.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,8 +47,12 @@ public class ApiController {
 
     @GetMapping("/parents")
     public ResponseEntity<ResponseWrapper> readAllParents() {
-        return ResponseEntity
-                .ok(new ResponseWrapper("Parents are successfully retrieved", parentRepository.findAll()));
+        ResponseWrapper responseWrapper = new ResponseWrapper(true, "Parents are successfully retrieved",
+                HttpStatus.ACCEPTED.value(),
+                parentRepository.findAll());
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .body(responseWrapper);
     }
 
 
