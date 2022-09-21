@@ -38,7 +38,6 @@ public class Address extends BaseEntity{
     private Student student;
 
     @OneToOne(mappedBy = "address")
-    @JsonBackReference
     @JsonIgnore
     private Parent parent;
 

@@ -32,7 +32,7 @@ public class Student extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
