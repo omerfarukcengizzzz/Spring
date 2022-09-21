@@ -26,7 +26,7 @@ public class ApiController {
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<Object> response = restTemplate.exchange("http://api.weatherstack.com/current?", HttpMethod.GET, entity, Object.class);
+        ResponseEntity<Object> response = restTemplate.exchange("http://api.weatherstack.com/", HttpMethod.GET, entity, Object.class);
 
         return response;
     }
