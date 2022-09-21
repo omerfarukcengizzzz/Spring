@@ -2,6 +2,7 @@ package com.cybertek.controller;
 
 import com.cybertek.enums.ResponseWrapper;
 import com.cybertek.model.Teacher;
+import com.cybertek.repository.ParentRepository;
 import com.cybertek.repository.StudentRepository;
 import com.cybertek.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class ApiController {
     private TeacherRepository teacherRepository;
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private ParentRepository parentRepository;
 
     @GetMapping("/{city}")
     public Object readUserById(@PathVariable("city") String city) {
@@ -41,6 +44,11 @@ public class ApiController {
                 .ok(new ResponseWrapper("Students are successfully retrieved", studentRepository.findAll()));
     }
 
+    @GetMapping("/parents")
+    public ResponseEntity<ResponseWrapper> readAllParents() {
+        return ResponseEntity
+                .ok(new ResponseWrapper("Parents are successfully retrieved", parentRepository.findAll()));
+    }
 
 
 }
