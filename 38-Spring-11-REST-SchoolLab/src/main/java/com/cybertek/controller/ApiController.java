@@ -14,17 +14,19 @@ public class ApiController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private String URI = "";
-
     @GetMapping("/test")
     public ResponseEntity<Object> consumePostsFromDummyApi() {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.set("app-id", "lTE5abbDxdjGplutvTuc");  // currently, the app-id for the dummyapi.io is not correct
+        headers.set("access_key", "ed60609d6e1582bafaa71464a763eeb1");
+
+        String city = "Henderson";
+
+        headers.set("query", city);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<Object> response = restTemplate.exchange("https://dummyapi.io/data/v1/user?limit=10", HttpMethod.GET, entity, Object.class);
+        ResponseEntity<Object> response = restTemplate.exchange("http://api.weatherstack.com/current?", HttpMethod.GET, entity, Object.class);
 
         return response;
     }
