@@ -23,4 +23,9 @@ public class Application {
                 .build();
     }
 
+    @Bean(name = "newObject")
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
 }
