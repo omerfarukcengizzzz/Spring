@@ -46,9 +46,9 @@ public class Address extends BaseEntity{
     @OneToOne(mappedBy = "address")
     private Teacher teacher;
 
-    private Integer getCurrentTemperature() {
-        return consumeTemp(this.city);
-    }
+//    private Integer getCurrentTemperature() {
+//        return consumeTemp(this.city);
+//    }
 
     public Integer consumeTemp(String city) {
         RestTemplate restTemplate = new RestTemplate();
