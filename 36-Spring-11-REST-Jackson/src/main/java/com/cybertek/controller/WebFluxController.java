@@ -5,6 +5,8 @@ import com.cybertek.entity.MovieCinema;
 import com.cybertek.repository.GenreRepository;
 import com.cybertek.repository.MovieCinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -54,6 +56,14 @@ public class WebFluxController {
 
     // --------------- WebClient Example ----------------
 
-
+    @GetMapping("/flux")
+    public Flux<MovieCinema> readWithWebClient() {
+        return webClient
+                .get()
+                .uri("/flux-movie-cinema")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToFlux(MovieCinema.class);
+    }
 
 }
