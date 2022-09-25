@@ -98,4 +98,13 @@ public class WebFluxController {
                 .bodyToMono(Genre.class);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public Mono<Void> deleteGenreWithWebClient(@PathVariable Long id) {
+        return webClient
+                .delete()
+                .uri("/delete-genre/{id}")
+                .retrieve()
+                .bodyToMono(Void.class);
+    }
+
 }
