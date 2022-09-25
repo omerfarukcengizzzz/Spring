@@ -75,4 +75,17 @@ public class WebFluxController {
                 .bodyToMono(MovieCinema.class);
     }
 
+    @GetMapping("/mono-rp")
+    public Mono<MovieCinema> readMonoWithWebClientRequestParam(@RequestParam Long id) {
+        return webClient
+                .get()
+                .uri(uriBuilder ->
+                        uriBuilder
+                                .path("/mono-movie-cinema")
+                                .queryParam("id", id)
+                                .build())
+                .retrieve()
+                .bodyToMono(MovieCinema.class);
+    }
+
 }
