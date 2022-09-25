@@ -88,4 +88,14 @@ public class WebFluxController {
                 .bodyToMono(MovieCinema.class);
     }
 
+    @PostMapping("/create")
+    public Mono<Genre> createGenreWithWebClient(@RequestBody Genre genre) {
+        return webClient
+                .post()
+                .uri("/create-genre")
+                .body(Mono.just(genre), Genre.class)
+                .retrieve()
+                .bodyToMono(Genre.class);
+    }
+
 }
