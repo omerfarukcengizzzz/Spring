@@ -22,7 +22,7 @@ public class MovieCinema extends BaseEntity {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne    //(fetch = FetchType.LAZY)
     private Cinema cinema;
 
     public MovieCinema(LocalDateTime dateTime) {
