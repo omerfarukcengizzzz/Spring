@@ -3,6 +3,10 @@ package com.cybertek.controller;
 import com.cybertek.entity.Cinema;
 import com.cybertek.repository.CinemaRepository;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +25,11 @@ public class CinemaController {
 
     @GetMapping
     @Operation(summary = "Get all cinemas from the database")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Cinema.class))}),
+            @ApiResponse(responseCode = "400", description = "Something went wrong"),
+            @ApiResponse(responseCode = "404", description = "Cinema not found", content = @Content)
+    })
     public List<Cinema> readAllCinemas() {
         return cinemaRepository.findAll();
     }
