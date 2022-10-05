@@ -27,7 +27,7 @@ public class CinemaController {
     @Operation(summary = "Get all cinemas from the database")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Cinema.class))}),
-            @ApiResponse(responseCode = "400", description = "Something went wrong"),
+            @ApiResponse(responseCode = "400", description = "Something went wrong", content = @Content),
             @ApiResponse(responseCode = "404", description = "Cinema not found", content = @Content)
     })
     public List<Cinema> readAllCinemas() {
