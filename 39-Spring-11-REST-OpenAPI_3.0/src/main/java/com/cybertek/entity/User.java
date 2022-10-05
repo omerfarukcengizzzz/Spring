@@ -1,5 +1,7 @@
 package com.cybertek.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +13,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Table(name = "user_account")   // user is a reserved keyword on database
+@JsonIgnoreProperties(ignoreUnknown = true, value = {"hibernateLazyInitializer"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User extends BaseEntity{
 
     private String email;
