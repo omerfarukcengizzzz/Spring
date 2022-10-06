@@ -26,11 +26,14 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     // Write a derived query to list all cinemas with a specific name or sponsored name
     List<Cinema> findByNameOrSponsoredName(String name, String sponsoredName);
 
+    Optional<Cinema> findCinemaById(Long id);
+
+
     // ------------------- JPQL QUERIES ----------------------
 
     // Write a JPQL query to read the cinema name with a specific id
-    @Query("select c.name from Cinema c where c.id = :id")
-    Optional<Cinema> findCinemaById(@Param("id") Long id);
+//    @Query("select c.name from Cinema c where c.id = :id")
+//    Optional<Cinema> findCinemaById(@Param("id") Long id);
 
     // ------------------- NATIVE QUERIES ----------------------
 
