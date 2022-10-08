@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,10 +44,10 @@ public class CinemaController {
         return cinemaRepository.findCinemaById(id).get();
     }
 
-//    @DeleteMapping("/delete/{id}")
-//    public void deleteCinemaById(@PathVariable Long id) {
-//        cinemaRepository.delete(cinemaRepository.findCinemaById(id).get());
-//    }
+    @DeleteMapping("/delete/{id}")
+    public void deleteCinemaById(@PathVariable Long id) {
+        cinemaRepository.delete(cinemaRepository.findCinemaById(id).get());
+    }
 
     @PostMapping("/create")
     @Operation(summary = "Create cinema")
@@ -53,7 +55,12 @@ public class CinemaController {
             @ApiResponse(responseCode = "200", description = "Cinema is successfully created", content = @Content),
             @ApiResponse(responseCode = "400", description = "Cinema cannot be created", content = @Content)
     })
-    public Cinema createCinema(@RequestBody Cinema cinema) {
-        return cinemaRepository.save(cinema);
+    public @ResponseBody ResponseEntity<Cinema> createCinema(@RequestBody Cinema cinema) {
+        cinemaRepository.save(cinema);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .header("Operation", "Create Cinema")
+                .build();
     }
 }
