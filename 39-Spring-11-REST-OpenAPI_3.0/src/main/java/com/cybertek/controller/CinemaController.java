@@ -42,9 +42,18 @@ public class CinemaController {
         return cinemaRepository.findCinemaById(id).get();
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteCinemaById(@PathVariable Long id) {
-        cinemaRepository.delete(cinemaRepository.findCinemaById(id).get());
-    }
+//    @DeleteMapping("/delete/{id}")
+//    public void deleteCinemaById(@PathVariable Long id) {
+//        cinemaRepository.delete(cinemaRepository.findCinemaById(id).get());
+//    }
 
+    @PostMapping("/create")
+    @Operation(summary = "Create cinema")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Cinema is successfully created", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Cinema cannot be created", content = @Content)
+    })
+    public Cinema createCinema(@RequestBody Cinema cinema) {
+        return cinemaRepository.save(cinema);
+    }
 }
