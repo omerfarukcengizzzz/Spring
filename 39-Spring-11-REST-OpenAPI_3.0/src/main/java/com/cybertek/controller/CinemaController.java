@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cinema")
@@ -63,4 +64,19 @@ public class CinemaController {
                 .header("Operation", "Create Cinema")
                 .build();
     }
+
+    @PutMapping("/{id}")
+    public Cinema updateCinemaById(@PathVariable Long id, @RequestBody Cinema cinema) {
+        Cinema foundCinema = cinemaRepository.findCinemaById(id).get();
+
+        foundCinema.setName(cinema.getName());
+        foundCinema.setSponsoredName(cinema.getSponsoredName());
+        foundCinema.setLocation(cinema.getLocation());
+
+        cinemaRepository.save(foundCinema);
+
+        return foundCinema;
+
+    }
+
 }
