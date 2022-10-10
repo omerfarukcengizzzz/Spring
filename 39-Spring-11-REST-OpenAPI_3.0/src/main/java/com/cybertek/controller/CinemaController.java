@@ -72,11 +72,9 @@ public class CinemaController {
         foundCinema.setName(cinema.getName());
         foundCinema.setSponsoredName(cinema.getSponsoredName());
         foundCinema.setLocation(cinema.getLocation());
-
         cinemaRepository.save(foundCinema);
 
         return foundCinema;
-
     }
 
 }
