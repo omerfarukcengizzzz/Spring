@@ -6,3 +6,7 @@ spring:
     name: spring-rest-security
   profiles:
     active: default
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cybertek
+    username: postgres
+    password: 5432
