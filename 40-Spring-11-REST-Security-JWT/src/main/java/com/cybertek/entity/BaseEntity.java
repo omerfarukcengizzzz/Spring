@@ -16,9 +16,9 @@ public class BaseEntity {
     private boolean isDeleted;
 
     @JsonIgnore
-    @Column(name = "created_date", nullable = false, updatable = false)
+    @Column(name = "creation_date", nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    private Date creationDate;
 
     @JsonIgnore
     @Column(name = "updated_date", nullable = false)
@@ -35,7 +35,7 @@ public class BaseEntity {
 
     @PrePersist
     private void onPrePersist() {
-        this.createdDate = new Date();
+        this.creationDate = new Date();
         this.updatedDate = new Date();
         this.createUserId = 1;
         this.updateUserId = 1;
