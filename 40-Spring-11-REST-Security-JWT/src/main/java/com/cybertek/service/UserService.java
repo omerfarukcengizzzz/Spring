@@ -2,7 +2,6 @@ package com.cybertek.service;
 
 import com.cybertek.entity.User;
 import com.cybertek.enums.UserState;
-import com.cybertek.exception.ServiceException;
 import com.cybertek.repository.UserRepository;
 
 import org.hibernate.service.spi.ServiceException;
@@ -22,12 +21,15 @@ public class UserService {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
     public User readByUsername(String username) {
         return userRepository.findByUsername(username).orElse(null);
     }
+
     public User readByEmail(String email) {
         return userRepository.findByEmail(email).orElse(null);
     }
+
     public List<User> getAll() {
         return userRepository.findAll();
     }
@@ -38,16 +40,16 @@ public class UserService {
         User foundUserByEmail = readByEmail(user.getEmail());
         User foundUserByUsername = readByUsername(user.getUsername());
 
-//        if(foundUserByEmail != null) {
-//            throw new ServiceException("This user already exists, please change your email");
-//        }
-//        if(foundUserByUsername != null) {
-//            throw new ServiceException("This user already exists, please change your username");
-//        }
+        if(foundUserByEmail != null) {
+            throw new ServiceException("This user already exists, please change your email");
+        }
+        if(foundUserByUsername != null) {
+            throw new ServiceException("This user already exists, please change your username");
+        }
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setIsVerified(false);
-        user.setIsDeleted(false);
+//        user.setIsDeleted(false);
         return userRepository.save(user);
     }
 
@@ -57,6 +59,7 @@ public class UserService {
         user.setState(UserState.ACTIVE);
         return userRepository.save(user);
     }
+
     @Transactional
     public void deleteUser(Integer id) throws ServiceException {
 
@@ -67,6 +70,7 @@ public class UserService {
         user.setIsVerified(false);
         userRepository.save(user);
     }
+
     @Transactional
     public User resetPassword(User user) throws ServiceException {
 
@@ -78,4 +82,5 @@ public class UserService {
         foundUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(foundUser);
     }
+
 }
