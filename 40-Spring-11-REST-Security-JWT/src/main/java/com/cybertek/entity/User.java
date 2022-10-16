@@ -35,11 +35,9 @@ public class User extends BaseEntity{
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
     private UserRole role;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "state")
     private UserState state;
 
 }
