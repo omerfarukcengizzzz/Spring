@@ -44,7 +44,6 @@ public class SecurityFilter extends OncePerRequestFilter {
             UserDetails userDetails = securityService.loadUserByUsername(username);
 
             if (jwtUtil.validateToken(token, userDetails) && checkIfUserIsValid(username)) {
-
                 UsernamePasswordAuthenticationToken currentUser =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 currentUser
