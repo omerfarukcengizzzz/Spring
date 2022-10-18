@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -19,7 +20,6 @@ public class JWTUtil {
     private String secret = "cybertek";
 
     public String generateToken(User user, String username) {
-
         Map<String, Object> claims = new HashMap<>();
 
         claims.put("username", user.getUsername());
@@ -48,7 +48,6 @@ public class JWTUtil {
     }
 
     private <T> T extraClaim(String token, Function<Claims, T> claimsResolver) {
-
         final Claims claims = extractAllClaims(token);
 
         return claimsResolver.apply(claims);
@@ -60,6 +59,16 @@ public class JWTUtil {
 
     public Date extractExpiration(String token) {
         return extraClaim(token, Claims::getExpiration);
+    }
+
+    private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    public Boolean validateToken(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
 }
