@@ -54,4 +54,12 @@ public class JWTUtil {
         return claimsResolver.apply(claims);
     }
 
+    public String extractUsername(String token) {
+        return extraClaim(token, Claims::getSubject);
+    }
+
+    public Date extractExpiration(String token) {
+        return extraClaim(token, Claims::getExpiration);
+    }
+
 }
