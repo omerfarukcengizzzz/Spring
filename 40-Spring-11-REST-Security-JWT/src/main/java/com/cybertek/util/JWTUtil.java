@@ -32,7 +32,7 @@ public class JWTUtil {
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 60 * 10))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 60 * 10)) // token will be available for 10 hours
                 .signWith(SignatureAlgorithm.ES256, secret)
                 .compact();
     }
