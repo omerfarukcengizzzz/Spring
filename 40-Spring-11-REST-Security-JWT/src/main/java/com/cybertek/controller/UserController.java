@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/read")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<ResponseWrapper> readAll() {
         List<User> userList = userService.getAll();
 
