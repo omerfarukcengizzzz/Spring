@@ -12,6 +12,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 public class AuthenticationController {
@@ -37,8 +40,11 @@ public class AuthenticationController {
 
         String jwt = jwtUtil.generateToken(foundUser);
 
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/authenticate").toUriString());
+
         return ResponseEntity
-                .ok(new ResponseWrapper("Login successful!", jwt));
+                .created(uri)
+                .body(new ResponseWrapper("Authentication token is created successfully!", jwt));
     }
 
 }
