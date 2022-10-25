@@ -3,7 +3,7 @@ package com.cybertek.controller;
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.entity.User;
 import com.cybertek.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,10 +16,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @EnableGlobalMethodSecurity(prePostEnabled = true)  // this annotation is activating authorization in this class
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping("/read")
     @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
