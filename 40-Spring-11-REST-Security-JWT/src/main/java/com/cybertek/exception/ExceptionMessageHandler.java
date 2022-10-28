@@ -58,12 +58,15 @@ public class ExceptionMessageHandler {
     private Optional<DefaultExceptionMessageDto> getMessageFromAnnotation(Method method) {
         com.cybertek.annotation.DefaultExceptionMessage defaultExceptionMessage = method.getAnnotation(com.cybertek.annotation.DefaultExceptionMessage.class);
         if (defaultExceptionMessage != null) {
+
             DefaultExceptionMessageDto defaultExceptionMessageDto = DefaultExceptionMessageDto
                     .builder()
                     .message(defaultExceptionMessage.defaultMessage())
                     .build();
+
             return Optional.of(defaultExceptionMessageDto);
         }
+
         return Optional.empty();
     }
 
