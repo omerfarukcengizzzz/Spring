@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 import java.nio.file.AccessDeniedException;
 import java.util.Optional;
 
-@RestControllerAdvice
 // this annotation means that, if you want to use this class you don't need to create an object for it
+@RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionMessageHandler {
 
