@@ -2,7 +2,6 @@ package com.cybertek.controller;
 
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.entity.User;
-import com.cybertek.exception.ServiceException;
 import com.cybertek.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,15 +27,6 @@ public class UserController {
 
         return ResponseEntity
                 .ok(new ResponseWrapper("User list retrieved successfully!", userList));
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<ResponseWrapper> createAccount(@RequestBody User user) throws ServiceException {
-
-        User newUser = userService.createUser(user);
-
-        return ResponseEntity
-                .ok(new ResponseWrapper("User has been created successfully!", newUser));
     }
 
 }
