@@ -2,14 +2,13 @@ package com.cybertek.controller;
 
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.entity.User;
+import com.cybertek.exception.ServiceException;
 import com.cybertek.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +28,15 @@ public class UserController {
 
         return ResponseEntity
                 .ok(new ResponseWrapper("User list retrieved successfully!", userList));
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<ResponseWrapper> createAccount(@RequestBody User user) throws ServiceException {
+
+        User newUser = userService.createUser(user);
+
+        return ResponseEntity
+                .ok(new ResponseWrapper("User has been created successfully!", newUser));
     }
 
 }
