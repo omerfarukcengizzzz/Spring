@@ -26,8 +26,8 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/read")
-//    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+//    @PreAuthorize("hasAuthority('USER')")
     @Operation(summary = "Retrieve all users")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved", content = @Content),
