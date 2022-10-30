@@ -7,6 +7,11 @@ import com.cybertek.entity.User;
 import com.cybertek.exception.ServiceException;
 import com.cybertek.service.UserService;
 import com.cybertek.util.JWTUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +24,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
+@Tag(name = "Authentication Controller", description = "Authentication API")
 public class AuthenticationController {
 
     @Autowired
@@ -30,6 +36,12 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     @DefaultExceptionMessage(defaultMessage = "Bad Credentials")
+    @Operation(summary = "Login to application")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Something went wrong", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Page not found", content = @Content)
+    })
     public ResponseEntity<ResponseWrapper> login(@RequestBody AuthenticationRequest request) {
 
         String username = request.getUsername();
@@ -53,7 +65,6 @@ public class AuthenticationController {
 
     @PostMapping("/create-user")
     @DefaultExceptionMessage(defaultMessage = "Failed to create the user, please try again!")
-
     public ResponseEntity<ResponseWrapper> createAccount(@RequestBody User user) throws ServiceException {
 
         User newUser = userService.createUser(user);
