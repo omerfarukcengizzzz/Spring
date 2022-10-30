@@ -17,7 +17,7 @@ public class BaseEntity {
     private Integer id;
 
     @Column(name = "is_deleted")
-    private boolean isDeleted;
+    private Boolean isDeleted;
 
     @JsonIgnore
     @Column(name = "creation_date", nullable = false, updatable = false)
