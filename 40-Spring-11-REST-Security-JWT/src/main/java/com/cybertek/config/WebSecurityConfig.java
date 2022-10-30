@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/create-user")
+                .antMatchers(permittedUrls)
                 .permitAll()
                 .anyRequest()
                 .authenticated();
@@ -39,5 +39,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
+    private static final String[] permittedUrls = {
+            "/authenticate",
+            "/create-user",
+            "/api/p1/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/webjars/**"
+    };
 
 }
