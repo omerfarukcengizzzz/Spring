@@ -3,8 +3,9 @@ package com.cybertek.controller;
 import com.cybertek.entity.Product;
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
@@ -20,6 +21,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    Logger logger = LoggerFactory.getLogger(ProductController.class);
+
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) {
         return ResponseEntity
@@ -28,15 +31,14 @@ public class ProductController {
 
     @GetMapping()
     public ResponseEntity<List<Product>> getProducts() {
-        HttpHeaders responseHttpHeaders = new HttpHeaders();
+        logger.info("Before -> Controller:{} - Method:{} - Input Parameter:{}", "ProductController", "getProducts()");
 
-        responseHttpHeaders.set("Version", "Cybertek.v1");
-        responseHttpHeaders.set("Operation", "Get List");
+        List<Product> list = productService.getProducts();
+
+        logger.info("After -> Controller:{} - Method:{} - Output Parameter:{}", "ProductController", "getProducts()", list);
 
         return ResponseEntity
-                .ok()
-                .headers(responseHttpHeaders)
-                .body(productService.getProducts());
+                .ok(list);
     }
 
     @DeleteMapping("/{id}")
