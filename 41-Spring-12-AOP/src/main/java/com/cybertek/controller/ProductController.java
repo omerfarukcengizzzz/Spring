@@ -21,7 +21,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    Logger logger = LoggerFactory.getLogger(ProductController.class);
+//    Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) {
@@ -31,11 +31,11 @@ public class ProductController {
 
     @GetMapping()
     public ResponseEntity<List<Product>> getProducts() {
-        logger.info("Before -> Controller:{} - Method:{} - Input Parameter:{}", "ProductController", "getProducts()");
+//        logger.info("Before -> Controller:{} - Method:{} - Input Parameter:{}", "ProductController", "getProducts()");
 
         List<Product> list = productService.getProducts();
 
-        logger.info("After -> Controller:{} - Method:{} - Output Parameter:{}", "ProductController", "getProducts()", list);
+//        logger.info("After -> Controller:{} - Method:{} - Output Parameter:{}", "ProductController", "getProducts()", list);
 
         return ResponseEntity
                 .ok(list);
