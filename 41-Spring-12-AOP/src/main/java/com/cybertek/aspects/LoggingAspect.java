@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -78,6 +79,9 @@ public class LoggingAspect {
     }
 
     // ----- after returning -----
+
+    // it will not get into this pointcut and the advices because the return type of the controller are ResponseEntity.
+    // they should return a list or a Class type in order to get into this pointcut
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     private void anyGetProductOperation(){}
 
@@ -91,5 +95,10 @@ public class LoggingAspect {
         logger.info("After Returning(List Result) -> Method : {} - results : {}", joinPoint.getSignature().toShortString(), results);
     }
 
+    // this advice will work due to the return type which is ResponseEntity
+    @AfterReturning(pointcut = "anyGetProductOperation()", returning = "results")
+    public void afterReturningControllerAdvice3(JoinPoint joinPoint, ResponseEntity<List<Product>> results){
+        logger.info("After Returning(List Result) -> Method : {} - results : {}", joinPoint.getSignature().toShortString(), results);
+    }
 
 }
