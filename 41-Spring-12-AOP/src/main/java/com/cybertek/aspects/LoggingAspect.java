@@ -81,12 +81,12 @@ public class LoggingAspect {
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     private void anyGetProductOperation(){}
 
-    @AfterReturning(pointcut = "anyGetProductOperation()",returning = "results")
+    @AfterReturning(pointcut = "anyGetProductOperation()", returning = "results")
     public void afterReturningControllerAdvice(JoinPoint joinPoint, Product results){
         logger.info("After Returning(Mono Result) -> Method : {} - results : {}", joinPoint.getSignature().toShortString(), results);
     }
 
-    @AfterReturning(pointcut = "anyGetProductOperation()",returning = "results")
+    @AfterReturning(pointcut = "anyGetProductOperation()", returning = "results")
     public void afterReturningControllerAdvice2(JoinPoint joinPoint, List<Product> results){
         logger.info("After Returning(List Result) -> Method : {} - results : {}", joinPoint.getSignature().toShortString(), results);
     }
