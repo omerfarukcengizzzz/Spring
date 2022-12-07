@@ -3,10 +3,7 @@ package com.cybertek.aspects;
 import com.cybertek.controller.ProductController;
 import com.cybertek.entity.Product;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -78,6 +75,7 @@ public class LoggingAspect {
         logger.info("Before -> Method : {} - Arguments : {} - Target : {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
     }
 
+
     // ----- after returning -----
 
     // it will not get into this pointcut and the advices because the return type of the controller are ResponseEntity.
@@ -101,4 +99,13 @@ public class LoggingAspect {
         logger.info("After Returning(List Result) -> Method : {} - results : {}", joinPoint.getSignature().toShortString(), results);
     }
 
+
+    // ----- after throwing -----
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    private void anyGetPutProductOperation() {}
+
+    @AfterThrowing(pointcut = "anyGetPutProductOperation()", throwing = "exception")
+    public void afterThrowingControllerAdvice(JoinPoint joinPoint, RuntimeException exception) {
+        logger.info("After Throwing(Send Email to L2 Team) -> Method : {} - Exception : {}", joinPoint.getSignature().toShortString(), exception.getMessage());
+    }
 }
