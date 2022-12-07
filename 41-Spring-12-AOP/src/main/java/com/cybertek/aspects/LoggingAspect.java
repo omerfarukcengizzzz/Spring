@@ -33,6 +33,7 @@ public class LoggingAspect {
 
 
     // ----- execution -----
+    // method level
 //    @Pointcut("execution(* com.cybertek.controller.ProductController.up*(..))")
 //    private void anyUpdateOperation() {}
 //
@@ -51,6 +52,7 @@ public class LoggingAspect {
 
 
     // ----- within -----
+    // class level
 //    @Pointcut("within(com.cybertek.controller..*)")
 //    private void anyControllerOperation() {
 //    }
