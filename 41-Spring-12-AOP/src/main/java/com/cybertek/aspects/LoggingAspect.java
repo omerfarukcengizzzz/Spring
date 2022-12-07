@@ -130,7 +130,6 @@ public class LoggingAspect {
 
 
     // ----- around -----
-
     @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
     private void anyPostProductOperation(){}
 
