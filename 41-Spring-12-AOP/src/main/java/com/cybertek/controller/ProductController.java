@@ -1,5 +1,6 @@
 package com.cybertek.controller;
 
+import com.cybertek.annotation.ExecutionTime;
 import com.cybertek.entity.Product;
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
@@ -29,6 +30,7 @@ public class ProductController {
                 .ok(productService.getProduct(id));
     }
 
+    @ExecutionTime
     @GetMapping()
     public ResponseEntity<List<Product>> getProducts() {
 //        logger.info("Before -> Controller:{} - Method:{} - Input Parameter:{}", "ProductController", "getProducts()");
